@@ -1,54 +1,68 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_printf_essential.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sramasam <sramasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/18 13:11:14 by sramasam          #+#    #+#             */
-/*   Updated: 2025/07/04 21:16:31 by sramasam         ###   ########.fr       */
+/*   Created: 2025/07/04 17:38:48 by sramasam          #+#    #+#             */
+/*   Updated: 2025/07/04 18:40:46 by sramasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printflib.h"
 
-int	ft_printhexa_upper(unsigned int n)
+int	ft_putchar(char c)
 {
-	char	d;
-	int		len;
-
-	len = 0;
-	if (n >= 16)
-		len += ft_printhexa_upper(n / 16);
-	d = HEXA_UPPER[n % 16];
-	len += write(1, &d, 1);
-	return (len);
+	return (write(1, &c, 1));
 }
 
-int	ft_printhexa_lower(unsigned int n)
+int	ft_putstr(char *s)
 {
-	char	d;
-	int		len;
+	int	i;
 
-	len = 0;
-	if (n >= 16)
-		len += ft_printhexa_lower(n / 16);
-	d = HEXA_LOWER[n % 16];
-	len += write(1, &d, 1);
-	return (len);
-}
-
-int	ft_ptraddress(unsigned long n)
-{
-	char	d;
-	int		len;
-
-	len = 0;
-	if (n == 0)
+	i = 0;
+	if (!s)
+		return (write(1, "(null)", 6));
+	while (s[i])
 	{
-		return (write(1, "(nil)", 5));
+		ft_putchar(s[i]);
+		i++;
 	}
-	len += write(1, "0x", 2);
-	len += ft_printhexa_lower(n);
+	return (i);
+}
+
+int	ft_putnbr(int n)
+{
+	char	d;
+	int		len;
+
+	len = 0;
+	if (n == -2147483648)
+	{
+		return (write(1, "-2147483648", 11));
+	}
+	if (n < 0)
+	{
+		len += write(1, "-", 1);
+		n = -n;
+	}
+	if (n >= 10)
+		len += ft_putnbr(n / 10);
+	d = (n % 10) + '0';
+	len += write(1, &d, 1);
+	return (len);
+}
+
+int	ft_putunbr(unsigned int n)
+{
+	char	d;
+	int		len;
+
+	len = 0;
+	if (n >= 10)
+		len += ft_putunbr(n / 10);
+	d = (n % 10) + '0';
+	len += write(1, &d, 1);
 	return (len);
 }
