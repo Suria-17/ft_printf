@@ -6,11 +6,11 @@
 /*   By: sramasam <sramasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 13:11:14 by sramasam          #+#    #+#             */
-/*   Updated: 2025/07/04 21:16:31 by sramasam         ###   ########.fr       */
+/*   Updated: 2025/07/08 11:50:26 by sramasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printflib.h"
+#include "ft_printf.h"
 
 int	ft_printhexa_upper(unsigned int n)
 {
@@ -38,10 +38,22 @@ int	ft_printhexa_lower(unsigned int n)
 	return (len);
 }
 
-int	ft_ptraddress(unsigned long n)
+int	ft_printptrhexa(unsigned long n)
 {
 	char	d;
 	int		len;
+
+	len = 0;
+	if (n >= 16)
+		len += ft_printptrhexa(n / 16);
+	d = HEXA_LOWER[n % 16];
+	len += write (1, &d, 1);
+	return (len);
+}
+
+int	ft_ptraddress(unsigned long n)
+{
+	int	len;
 
 	len = 0;
 	if (n == 0)
@@ -49,6 +61,6 @@ int	ft_ptraddress(unsigned long n)
 		return (write(1, "(nil)", 5));
 	}
 	len += write(1, "0x", 2);
-	len += ft_printhexa_lower(n);
+	len += ft_printptrhexa(n);
 	return (len);
 }

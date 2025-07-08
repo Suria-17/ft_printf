@@ -6,11 +6,11 @@
 /*   By: sramasam <sramasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 17:38:48 by sramasam          #+#    #+#             */
-/*   Updated: 2025/07/04 18:40:46 by sramasam         ###   ########.fr       */
+/*   Updated: 2025/07/08 11:49:38 by sramasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printflib.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {

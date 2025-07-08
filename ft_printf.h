@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printflib.h                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sramasam <sramasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 19:19:36 by sramasam          #+#    #+#             */
-/*   Updated: 2025/07/04 21:09:11 by sramasam         ###   ########.fr       */
+/*   Updated: 2025/07/08 11:50:11 by sramasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTFLIB_H
-# define PRINTFLIB_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # define HEXA_UPPER "0123456789ABCDEF"
 # define HEXA_LOWER "0123456789abcdef"

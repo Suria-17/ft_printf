@@ -6,11 +6,11 @@
 /*   By: sramasam <sramasam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 07:16:00 by sramasam          #+#    #+#             */
-/*   Updated: 2025/07/04 20:52:05 by sramasam         ###   ########.fr       */
+/*   Updated: 2025/07/08 11:49:43 by sramasam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printflib.h"
+#include "ft_printf.h"
 
 int	ft_check_con(va_list args, char c)
 {
